@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-Description: Suppress over-called "other" non-escalation labels. Model "other" is
-correct only ~12% of the time on v52; gold "Other" corresponds to a narrow set of
-themes (no-ASCVD-yet / derisking / CAC / polypharmacy). Keep "other" only when the
+Description: Filter "other" non-escalation labels to supported themes
+(no-ASCVD-yet / derisking / CAC / polypharmacy). Keep "other" only when the
 model's free-text rationale matches those themes; otherwise drop it (falling back to
 continue_current_therapy when it was the sole reason).
 """

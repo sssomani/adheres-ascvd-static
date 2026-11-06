@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Description: Boundary reassertion module (v54, IDEA #1). When the main non-escalation
+Description: Boundary reason reclassification. When the main non-escalation
 pass selects any boundary label (defer_after_labs / defer_future_visit /
 defer_alternate_clinician / other), a focused few-shot disambiguator re-derives the
 correct subset of boundary labels from the note, using TRAIN-mined contrast demos.

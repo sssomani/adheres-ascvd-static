@@ -52,10 +52,10 @@ class SmokeTests(unittest.TestCase):
                 out = Path(tmp) / 'prediction.json'
                 env = {k: v for k, v in os.environ.items() if 'proxy' not in k.lower() and k not in ('PYTHONPATH', 'SECURE_GPT_KEY', 'MODEL_PROVIDER', 'MODEL_NAME', 'MODEL_BASE_URL')}
                 env.update(SECURE_GPT_KEY='synthetic-test-key', OPENAI_API_KEY='synthetic-test-key', LITELLM_LOCAL_MODEL_COST_MAP='True', DSPY_CACHEDIR=str(Path(tmp) / 'cache'))
-                command = [sys.executable, str(ROOT / 'run.py')]
+                command = [sys.executable, str(ROOT / 'src' / 'run.py')]
                 if provider == 'aihub':
                     # Redirect only the public gateway address; use the actual HubTransport.
-                    bootstrap = f'import sys; sys.path.insert(0, {str(ROOT)!r}); import aihub, run; aihub.GATEWAY = "http://127.0.0.1:{server.server_port}/azure-openai"; sys.exit(run.main())'
+                    bootstrap = f'import sys; sys.path.insert(0, {str(ROOT / "src")!r}); import aihub, run; aihub.GATEWAY = "http://127.0.0.1:{server.server_port}/azure-openai"; sys.exit(run.main())'
                     command = [sys.executable, '-c', bootstrap]
                 command += ['--provider', provider, '--model', 'openai/gpt-5', '--base-url', f'http://127.0.0.1:{server.server_port}/v1', '--note', str(ROOT / 'examples/note.txt'), '--output', str(out)]
                 result = subprocess.run(command, cwd=tmp, env=env, capture_output=True, text=True, timeout=60)

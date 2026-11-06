@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the final v83 extraction model on one UTF-8 clinical note."""
+"""Run the ADHERES ASCVD extraction model on one UTF-8 clinical note."""
 import argparse
 import hashlib
 import importlib.metadata
@@ -63,7 +63,7 @@ def main(argv=None):
     parser.add_argument('--base-url', help='OpenAI-compatible endpoint URL')
     args = parser.parse_args(argv)
     from dotenv import load_dotenv
-    load_dotenv(Path(__file__).with_name('.env'))
+    load_dotenv(Path(__file__).resolve().parents[1] / '.env')
     provider = args.provider or os.environ.get('MODEL_PROVIDER', 'aihub')
     model = args.model or os.environ.get('MODEL_NAME', 'openai/gpt-5')
     base_url = args.base_url or os.environ.get('MODEL_BASE_URL')
@@ -95,7 +95,7 @@ def main(argv=None):
         print('Inference failed. Check model access and configuration; request details are suppressed.', file=sys.stderr)
         return 1
     result['configuration'] = {
-        'version': 'v83', 'model': model, 'provider': provider,
+        'model': model, 'provider': provider,
         'demonstration_count': count,
         'demonstrations_sha256': hashlib.sha256(args.examples.read_bytes()).hexdigest() if args.examples else None,
         'dependencies': {name: importlib.metadata.version(name) for name in ('dspy', 'litellm', 'openai', 'httpx', 'python-dotenv')},
