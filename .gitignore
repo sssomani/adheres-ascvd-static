@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.ipynb_checkpoints/
+.dspy_cache/
+.litellm_cache/
+data/
+private/
+outputs/
+results/
+*.jsonl
+*.log

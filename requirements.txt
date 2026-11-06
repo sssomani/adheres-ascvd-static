@@ -1,0 +1,6 @@
+# Tested release environment; not a historical lockfile for the study run.
+dspy==3.2.1
+litellm==1.90.2
+openai==2.44.0
+httpx[socks]==0.28.1
+python-dotenv==1.2.2

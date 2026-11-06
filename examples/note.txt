@@ -1,0 +1,3 @@
+SYNTHETIC EXAMPLE — invented for testing; not a patient record.
+Assessment: Established ASCVD. Current LDL-C is 92 mg/dL while taking atorvastatin 40 mg daily. The patient reports muscle aches with a higher statin dose.
+Plan: Discussed an LDL-C target below 70 mg/dL. Continue atorvastatin 40 mg daily. The patient declines adding ezetimibe after discussion.

@@ -1,0 +1,19 @@
+{
+  "version": "v83",
+  "source": "adheres_ascvd/src/static/v83",
+  "original_sha256": {
+    "dspy_prompts.py": "3cdfcad616aaf57de98d287843218f5caca90df94e3738c18e97811153f68c6c",
+    "boundary_reassert.py": "ec12f695394b729632f349bab4f013386e0831a704f9c2399c702acfba943124",
+    "defer_recall_add.py": "571fb29cf5d248db903d3d5fcea5e9c65fe938038e4f5b866f3e62bbe067530c",
+    "defer_labs_verifier.py": "ec92a978310f28728deaf68a271638b3eef466af2aebf94c05ffa1d1931f3606",
+    "ldl_goal_gate.py": "4286e043dd2b3ad3c7cd4d7d24e2cf61f23a89e23c1941ff1f8440b8b695776f",
+    "evidence_span_gate.py": "86a8ba4e8a4b7b26b2e0af48e31e2e6337d682c41e9bda340e5fa2f58a27773e",
+    "other_suppression_gate.py": "7b14a2de5c3515f067202ae5a8c0a33bbbd43f4f454dbd04b45bfdfa395dedb9"
+  },
+  "adaptations": [
+    "boundary_reassert.py: demonstrations require an explicit path and schema validation; original prompt and inference functions unchanged.",
+    "run.py: standalone text input and JSON output replace notebook dataset loading.",
+    "context.py: exact context extracted from run_inference.ipynb."
+  ],
+  "private_demonstrations_included": false
+}
